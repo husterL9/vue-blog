@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <script>
+        nums = [-1, 0, 3, 5, 9, 12]
+        var search = function(nums, target) {
+            nums.sort((a, b) => a > b)
+            flag = Math.ceil(nums.length / 2)
+            console.log(flag)
+            if (target == nums[flag]) {
+                return flag
+            }
+            if (target > nums[flag]) {
+                nums = nums.slice(flag)
+                search(nums, target)
+            } else
+                nums = nums.slice(0, flag)
+            search(nums, target)
+            return -1
+        };
+        console.log(search(nums, 9));
+        // function loadJson(url) {
+        //     return fetch(url)
+        //         .then(response => {
+        //             if (response.status == 200) {
+        //                 return response.json();
+        //             } else {
+        //                 throw new Error(response.status);
+        //             }
+        //         });
+        // }
+
+        // loadJson('https://javascript.info/no-such-user.json')
+        //     .catch(alert); // Error: 404
+    </script>
+</body>
+
+</html>
